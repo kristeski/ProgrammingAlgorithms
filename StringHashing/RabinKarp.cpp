@@ -11,9 +11,9 @@ int main() {
     cin.tie(NULL);
     string s, s1;
     cin >> s >> s1;
-    const int p = 31, M = 1e9 + 9;
+    const ll p = 31, M = 1e9 + 9;
     int n = s.size(), n1 = s1.size();
-    
+
     vll p_p(max(n, n1)), h(n + 1); h[0] = 0;
     p_p[0] = 1;
 
