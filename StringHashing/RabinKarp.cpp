@@ -32,7 +32,10 @@ int main() {
         if((h[i + n1] - h[i] + M) % M == (h_s * p_p[i]) % M)
             oc.push_back(i);
 
-    for(int i : oc)
-        cout << i << " ";
+    if(!oc.size())
+        cout << "Not Found";
+    else
+        for(int i : oc)
+            cout << i << '\n';
     return 0;
 }
