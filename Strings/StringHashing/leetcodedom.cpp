@@ -68,6 +68,3 @@ int main() {
     cin >> s;
     cout << tc.longestDupSubstring(s);
 }
-// zadacata ne e resliva bez double hash poradi kolizii
-// mojata implementacija e so 1 hash i proverki na podstringovi
-// za da se izbegne gresen rezultat pri kolizija na hash
