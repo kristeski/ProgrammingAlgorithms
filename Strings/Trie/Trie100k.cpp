@@ -2,6 +2,7 @@
 using namespace std;
 struct Tnode {
     Tnode* chi[26];
+    string s;
     bool endow;
     Tnode() {
         for (int i = 0; i < 26; i++)
@@ -10,14 +11,16 @@ struct Tnode {
     }
 };
 Tnode root;
-void inw(string s) {
-    reverse(s.begin(), s.end());
+void inw(string s1) {
+    reverse(s1.begin(), s1.end());
     Tnode* curr = &root;
-    while (s.size()) {
-        if (!curr->chi[s.back() - 'a'])
-            curr->chi[s.back() - 'a'] = new Tnode();
-        curr = curr->chi[s.back() - 'a'];
-        s.pop_back();
+    while (s1.size()) {
+        if (!curr->chi[s1.back() - 'a']) {
+            curr->chi[s1.back() - 'a'] = new Tnode();
+            reverse(s1.begin(), s1.end());
+            curr->chi[s1.back() - 'a']->s = s1;
+            break;
+        }
     }
     curr->endow = true;
 }
@@ -31,17 +34,6 @@ bool isw(string s) {
         s.pop_back();
     }
     return curr->endow;
-}
-string tmp;
-void preorder(Tnode* curr) {
-    if (curr->endow)
-        cout << tmp << endl;
-    for (int i = 0; i < 26; i++)
-        if (curr->chi[i]) {
-            tmp.push_back((char)(i + 'a'));
-            preorder(curr->chi[i]);
-            tmp.pop_back();
-        }
 }
 int main() {
     ios_base::sync_with_stdio(false);
